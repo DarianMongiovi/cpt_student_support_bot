@@ -48,7 +48,7 @@ repetitive workload, increase the consistency of responses, and provide students
 - **Operating System(s): Linux (CPT Internal VM)
 - **Programming Language(s): Python 3
 - **Frameworks / Libraries: Discord.py
-- **Databases / Storage: PostgreSQL, or possible alternative of structured local files
+- **Databases / Storage: SQLite, or possible alternative of structured local files
 - **Infrastructure (VMs, containers, etc.): The bot will be deployed on a CPT internal Linux vm and run as a managed background service. Containerization (Docker) would be 
 considred only if approved and appropriate for long term use.
 - **Tools (Git, CI, monitoring, APIs, etc.): Git and GitHub for version control and team colaboration, environment variables for secure config and secrets management, basic logging
@@ -61,6 +61,7 @@ direct experience creating a Discord bot for a previous Python class project. Ad
 secure config practices within the CPT internal network. -Ayden
 
 Working with discord bots in the past I have experience with automating responses for user inputs, and writing functions that take user input. SQL is a interest of mine as I innitially started IT studies with data analytics programs. Designing creative database schemas that can provide students with relevant reasources based on simple inputs is a motivating challenge. I have experience writting DDL code to define a database, and DQL code for the bot to use for queries. -Darian
+
 ---
 
 ## 7. Project Scope & Deliverables
