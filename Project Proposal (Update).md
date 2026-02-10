@@ -4,7 +4,7 @@
 - **Project Title: CPT Program Discord Bot (Student Support Bot)
 - **Course: CPT 298 01
 - **Term: Spring 2026
-- **Student Name(s): Ayden Sturtevant, Ian Broshes, Darian Mongiovi
+- **Student Name(s): Ayden Sturtevant, Ian Broshes, Darian Mongiovi, Daniel Lukonda
 - **Primary Contact: Discord
 - **Proposed Start Date: Pending Approval
 - **Proposed End Date: TBD
