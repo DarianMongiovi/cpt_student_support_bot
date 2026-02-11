@@ -165,6 +165,6 @@ By submitting this proposal, I acknowledge that:
 Student 1:  __Ayden Sturtevant__________________________ Date: _02/07/2026______________
 Student 2:  __Darian Mongiovi___________________________ Date: _02/07/2026______________
 Student 3:  __Ian Broshes______________________________ Date: _02/09/2026______________
-Student 4:  ____________________________ Date: _______________
+Student 4:  __daniel lukonda_________________________ Date: ___02/08/2026____________
 
 Instructor: ____________________________ Date: _______________
