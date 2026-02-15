@@ -1,7 +1,7 @@
 # Project Proposal
 
 ## 1. Project Identification
-- **Project Title: CPT Program Discord Bot (Student Support Bot)
+- **Project Title: CMCC Academic & Athletics Calender Data Integration
 - **Course: CPT 298 01
 - **Term: Spring 2026
 - **Student Name(s): Ayden Sturtevant, Ian Broshes, Darian Mongiovi, Daniel Lukonda
@@ -11,123 +11,115 @@
 ---
 
 ## 2. Project Selection & Motivation
-Our group selected to do a CPT program Discord bot. This project is going to be designed to support the CPT program by creating a practical internal
-automation tool that would also align with real world IT tasks. The intent of this first project is to apply previously learned skills throughout the CPT
-program and apply it to a realistic environment while also contributing to the development and management of the internal CPT network.
+Our group selected this project as it directly supports the CPT program while also applying practical skills in data integration, database management, and automation. 
+Academic calender data, O365 events, and athletic schedules currently exist in seperate systems and formats (PFD, JSON, or Excel), which can make it difficult to manage consistently.
 
-Discord is already the primary communication platform for us CPT students. However commonly requested program information (eg. resources, links, contact details, and general help/guidance, etc.) 
-is often repeated across channels and different conversations. This creates a very unnecessary overhead for staff and student workers and can also possibly lead to inconsistent responses.
-
-By building an internal Discord bot, our group can have a center point for frequently asked questions and provide students with quick, reliable access to approved sources.
+By automating the extraction and integration of these sources into a centralized PostgreSQL database, we create a unified and most importantly a maintainable warehouse. This project 
+reflects real world IT practices such as APU integration, file parsing, schema design, and automated data processing while directly contributing to CPT infrastructure.
 ---
 
 ## 3. Problem Statement
-Currently CPT students rely on manual responses from instructors, staff, or peers to answer routine program related questions.
-The current approach: 
-* Does not scale well as student participation grows
-* Leads to possible duplicated effort
-* Can result in outdated or inconsistent information
+Academic calender data, O365 events, and athletic schedules are stored across multiple platforms and formats which includes PDF, JSON, .ics, and Excel. Because these sources are 
+seperate and structured differently. there is no centralized or automated method to manage this data.
 
-The CPT program would greatly benefit from a lightweight, maintainable automation tool that can provide standardized responses and act as a single source of truth
-for common CPT program information.
+This lack of integration limits consistency, query capability, and long term maintainability. An automated process is needed to consolidate these sources into a structured
+PostgreSQL database.
 ---
 
 ## 4. Proposed Solution Overview
-To address this problem, our group proposes building an internal Discord bot that runs within the CPT internal environemnt and provides automated responses to 
-common CPT program questions.
+To address this problem, our group proposes developing a ETL (Extract, Transform, Load) pipeline that collects calender data from multiple sources and integrates it into
+a centralized PostgreSQL database within the CPT internal environment.
 
-This bot will use a command based interface to deliver approved CPT information such as helpful resources, links, answers to FAQs, and general guidance. All data returned by the bot will be stored
-in a centralized and maintainable format (database or structured config files), which would allow updates without modifying core bot logic.
-
-The bot will be deployed on a CPT internal Linux vm and designed with clear doccumentation so future students would be able to maintain or extend it. By automating common info requestsm the bot will reduce
-repetitive workload, increase the consistency of responses, and provide students with faster access to reliable CPT resources.
+The process will extract data from the academic calender JSON output, O365 events, and athletic schedules (.ics or other structured formats), normalize the data into a consistent
+schema, and then load it into the database. This solution creates a unified and maintainable warehouse that supports reliable storage, quering, and future automation.
 ---
 
 ## 5. Technical Stack & Tools
 
 - **Operating System(s): Linux (CPT Internal VM)
 - **Programming Language(s): Python 3
-- **Frameworks / Libraries: Discord.py
+- **Frameworks / Libraries: O365, ics and or icalender, pandas, psycopg
 - **Databases / Storage: PostgreSQL, or possible alternative of structured local files
-- **Infrastructure (VMs, containers, etc.): The bot will be deployed on a CPT internal Linux vm and run as a managed background service. Containerization (Docker) would be 
-considred only if approved and appropriate for long term use.
+- **Infrastructure (VMs, containers, etc.): The ETL process will run on a CPT internal Linux machine and may be executed manually or scheduled as an automated task depending on 
+approval and scope.
 - **Tools (Git, CI, monitoring, APIs, etc.): Git and GitHub for version control and team colaboration, environment variables for secure config and secrets management, basic logging
-for monitoring and troubleshooting, and the discord API for bot communication.
+for monitoring and troubleshooting, and external APIs required for O365 integration.
 ---
 
 ## 6. Prerequisite Knowledge & Skills
-This project builds upon previous skills I have learned throughout the CPT program. I have prior experience with Python scripting, Git/GitHub, and working within Linux environments, as well as 
-direct experience creating a Discord bot for a previous Python class project. Additional skills that may need to be learned include production style deployment, service management, and 
-secure config practices within the CPT internal network. -Ayden
+This project builds on skills developed throughout the CPT program, including Python scripting, database fundamentals, and working within Linux environments. I have prior experience with Python development, structured data processing, and SQL, as well as using Git/GitHub for version control.. working with external APIs (O365), parsing .ics calendar files, refining database schema design, and implementing automated ETL processes within the CPT internal environment. - Ayden
 
 Working with discord bots in the past I have experience with automating responses for user inputs, and writing functions that take user input. SQL is a interest of mine as I innitially started IT studies with data analytics programs. Designing creative database schemas that can provide students with relevant reasources based on simple inputs is a motivating challenge. I have experience writting DDL code to define a database, and DQL code for the bot to use for queries. -Darian
 ---
 
 ## 7. Project Scope & Deliverables
-The scope of the project is going to mainly limited to designing, implementing, and deploying a functional Discord bot within the CPT internal environment. The bot will provide 
-command based informational responses using a centralized and maintainable data source. Development will mainly focus on reliabilitym clarity, and documentation rather than advanced or 
-experimental features. Though if time permits, more features are subject to be added.
+The scope of this project will be mainly limited to designing, implementing, and deploying an automated ETL pipeline that will aggregate academic and athletic calender data into a PostgreSQL
+database within the CPT internal environment. Development will mainly focus on reliable data extraction, normalization into consistent schema, and accurate database integration.
 
-Deliverables for this project include a GitHub repository containing the completed proposal, all source code, config files, and the documentation required to understand, deploy, and maintain the bot.
-A final presentation will also be completed with each group member participatiing as required.
+Deliverables for this project include a GitHub repository containing the completed proposal, all source code, database schema definitions, config files, and the documentation required to deploy and maintain the integration process. A final live demonstration of the working pipeline will also be completed with each group member participating as required.
 ---
 
 ## 8. Milestones & Timeline
-Phase 1: Planning and Setup
-Finalize project requirements and scope
-Fork and complete the project proposal
-Set up development environment and version control
+Phase 1: Planning & Design
+Finalize project requirements and data sources
+Design PostgreSQL database schema
+Set up development environment and repository
 
-Phase 2: Core Development
-Implement core functionality
-Develop command based responses
-Integrate the chosen data storage method
+Phase 2: Data Extraction
+Implement data ingestion from academic calendar JSON
+Integrate O365 calendar access
+Parse athletics schedules from .ics or other structured formats
 
-Phase 3: Deployment and Testing
-Deplot the bot to the CPT internal environment
-Test functionality, permissions, and reliability
-Address possible bugs and stability issues
+Phase 3: Data Transformation & Integration
+Normalize data into a consistent schema
+Implement database insertion and update logic
+Test data accuracy and consistency
 
-Phase 4: Documentation and Presentation
-Finish project documentation and setup guides
-Prepare final demonstration and presentation
-Then finally participate in scheduled presentation
+Phase 4: Automation & Deployment
+Deploy the ETL process to the CPT internal environment
+Implement scheduled execution (if approved)
+Perform final testing and validation
+
+Phase 5: Documentation & Presentation
+Complete documentation and setup guides
+Prepare final demonstration
+Deliver project presentation
 ---
 
 ## 9. Risks, Constraints & Dependencies
 Risks:
-Possible delays relating to access or approval for CPT internal infastructure
-Misconfiguration of Discord permissions or bot credentials
-Limited Time
+Changes or inconsistencies in source data formats (PDF JSON output, O365 API responses, or .ics files)
+API authentication or permission issues with O365
+Data normalization challenges when combining multiple calendar sources
+Limited time within the half semester project window
 
-Contraints:
+Constraints:
 Deployment must remain within the CPT internal environment
-Project must follow the approved scope and proposal
-No handling of sensitive or personal student data
+The project must follow the approved scope and proposal
+No modification of original source systems, only data ingestion and storage
 
 Dependencies:
 Approval of the project proposal
-Access to a CPT internal VM
-Creation and approval of a Discord app and bot token
-Access to a internal PostgreSQL database
+Access to a CPT internal Linux VM
+Access to an internal PostgreSQL database
+Proper credentials and permissions for O365 and calendar data sources
 ---
 
 ## 10. Security, Ethics & Safety Considerations
 Authentication and Authorization:
-The bot will authenticate using a Discord bot token and operate under the principle of least privlage. No user authentication beyond standard Discord permissions will be implemented. The bots api token will also be kept locally to prevent unauthorized useage.
+Access to O365 and the PostgreSQL database will require proper credentials and permissions. API tokens and database credentials will be stored securely using environment variables and will not be hardcoded in the source code.
 
 Data Sensitivity:
-The bot will not store, process, or access sesitive or personal student data. All information provided will be purely informational.
+The project will process calendar event data only. No sensitive personal or academic records (such as grades or private student information) will be accessed or stored.
 
 Network Exposure:
-The bot will be deployed within the CPT internal environment and will not expose any additional network services or open ports beyond that of which is required for Discord communication.
+The ETL process will run within the CPT internal environment and will not expose additional network services or open ports beyond what is required for approved API communication and database access.
 
 Logging, Monitoring, or Automation Impact:
-Basic logging will be implemented for troubleshooting, and operational awareness. There will be no automated actions that could negativly impact users.
+Basic logging will be implemented for troubleshooting and data validation. The process will perform read only extraction from source systems and controlled inserts/updates into the database to prevent unintended system impact.
 
 Ethical Considerations:
-The bot will provide answers and guidance only and will not ever act as a moderator or replace offical CPT communications. Its functionality will be limited in scope and designed to avoid 
-misuse.
+The system will aggregate data for organizational purposes only and will not modify original source systems. All access to external services will comply with institutional policies and approved permissions.
 ---
 
 ## 11. Team Structure (If Applicable)
@@ -139,20 +131,19 @@ If working in a group, describe:
 ---
 
 ## 12. Documentation & Knowledge Transfer Plan
-The project documentation will be maintained within the GitHub repository and include setup instructions, config details, and some basic troubleshooting guidance. The 
-documentation will be written so that future CPT students can deploy, maintain, and extend the bot without needing direct assistance from the original development team.
-And required internal knowledgebase documentation will also be completed as specidfied.
+Project documentation will be maintained within the GitHub repository and will include setup instructions, database schema definitions, configuration requirements, and execution procedures for the ETL process. Documentation will clearly describe data sources, transformation logic, and database structure to ensure future CPT students can maintain or extend the integration pipeline without direct assistance from the original group. Any required internal knowledgebase documentation will also be completed as specified.
 ---
 
 ## 13. Faculty/cpt.internal Resources Requested
-Access to a CPT internal Linux VM
+Access to a CPT internal Linux virtual machine for development and deployment
 
-Permission to create and configure a Discord app and bot token.
+Access to an internal PostgreSQL database instance
 
-Access to an internal PostgreSQL database, if approved and available.
+Appropriate credentials and permissions for O365 calendar access
 
-And any other permissions required in order to properly deploy our bit wihtin the CPT internal network.
----
+Access to athletics calendar data (.ics files or approved alternative source)
+
+Any additional permissions required to securely integrate and test data within the CPT internal environment
 
 ## 14. Acknowledgement of Expectations
 By submitting this proposal, I acknowledge that:
@@ -165,6 +156,6 @@ By submitting this proposal, I acknowledge that:
 Student 1:  __Ayden Sturtevant__________________________ Date: _02/07/2026______________
 Student 2:  __Darian Mongiovi___________________________ Date: _02/07/2026______________
 Student 3:  __Ian Broshes______________________________ Date: _02/09/2026______________
-Student 4:  __daniel lukonda_________________________ Date: ___02/08/2026____________
+Student 4:  _______Daniel Lukonda_____________________ Date: _02/09/2026______________
 
 Instructor: ____________________________ Date: _______________
