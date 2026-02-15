@@ -16,6 +16,7 @@ Academic calender data, O365 events, and athletic schedules currently exist in s
 
 By automating the extraction and integration of these sources into a centralized PostgreSQL database, we create a unified and most importantly a maintainable warehouse. This project 
 reflects real world IT practices such as APU integration, file parsing, schema design, and automated data processing while directly contributing to CPT infrastructure.
+
 ---
 
 ## 3. Problem Statement
@@ -24,6 +25,7 @@ seperate and structured differently. there is no centralized or automated method
 
 This lack of integration limits consistency, query capability, and long term maintainability. An automated process is needed to consolidate these sources into a structured
 PostgreSQL database.
+
 ---
 
 ## 4. Proposed Solution Overview
@@ -32,6 +34,7 @@ a centralized PostgreSQL database within the CPT internal environment.
 
 The process will extract data from the academic calender JSON output, O365 events, and athletic schedules (.ics or other structured formats), normalize the data into a consistent
 schema, and then load it into the database. This solution creates a unified and maintainable warehouse that supports reliable storage, quering, and future automation.
+
 ---
 
 ## 5. Technical Stack & Tools
@@ -44,12 +47,14 @@ schema, and then load it into the database. This solution creates a unified and 
 approval and scope.
 - **Tools (Git, CI, monitoring, APIs, etc.): Git and GitHub for version control and team colaboration, environment variables for secure config and secrets management, basic logging
 for monitoring and troubleshooting, and external APIs required for O365 integration.
+
 ---
 
 ## 6. Prerequisite Knowledge & Skills
 This project builds on skills developed throughout the CPT program, including Python scripting, database fundamentals, and working within Linux environments. I have prior experience with Python development, structured data processing, and SQL, as well as using Git/GitHub for version control.. working with external APIs (O365), parsing .ics calendar files, refining database schema design, and implementing automated ETL processes within the CPT internal environment. - Ayden
 
 Working with discord bots in the past I have experience with automating responses for user inputs, and writing functions that take user input. SQL is a interest of mine as I innitially started IT studies with data analytics programs. Designing creative database schemas that can provide students with relevant reasources based on simple inputs is a motivating challenge. I have experience writting DDL code to define a database, and DQL code for the bot to use for queries. -Darian
+
 ---
 
 ## 7. Project Scope & Deliverables
@@ -57,6 +62,7 @@ The scope of this project will be mainly limited to designing, implementing, and
 database within the CPT internal environment. Development will mainly focus on reliable data extraction, normalization into consistent schema, and accurate database integration.
 
 Deliverables for this project include a GitHub repository containing the completed proposal, all source code, database schema definitions, config files, and the documentation required to deploy and maintain the integration process. A final live demonstration of the working pipeline will also be completed with each group member participating as required.
+
 ---
 
 ## 8. Milestones & Timeline
@@ -84,6 +90,7 @@ Phase 5: Documentation & Presentation
 Complete documentation and setup guides
 Prepare final demonstration
 Deliver project presentation
+
 ---
 
 ## 9. Risks, Constraints & Dependencies
@@ -103,6 +110,7 @@ Approval of the project proposal
 Access to a CPT internal Linux VM
 Access to an internal PostgreSQL database
 Proper credentials and permissions for O365 and calendar data sources
+
 ---
 
 ## 10. Security, Ethics & Safety Considerations
@@ -120,6 +128,7 @@ Basic logging will be implemented for troubleshooting and data validation. The p
 
 Ethical Considerations:
 The system will aggregate data for organizational purposes only and will not modify original source systems. All access to external services will comply with institutional policies and approved permissions.
+
 ---
 
 ## 11. Team Structure (If Applicable)
@@ -128,10 +137,11 @@ If working in a group, describe:
 - Currently we are using discord to communicate about initial structures. A github repository will be set up to handle code revisions.
 - Simple voting to resolve any ambiguity issues. Goals are very cleared and structured. We will stick to a set of packages and tools to avoid technical conflicts.
 - The project can be parsed out into different functions needed so members can focus on strong suits weather it be sql, python, or web apis.
----
+--- 
 
 ## 12. Documentation & Knowledge Transfer Plan
 Project documentation will be maintained within the GitHub repository and will include setup instructions, database schema definitions, configuration requirements, and execution procedures for the ETL process. Documentation will clearly describe data sources, transformation logic, and database structure to ensure future CPT students can maintain or extend the integration pipeline without direct assistance from the original group. Any required internal knowledgebase documentation will also be completed as specified.
+
 ---
 
 ## 13. Faculty/cpt.internal Resources Requested
@@ -145,6 +155,7 @@ Access to athletics calendar data (.ics files or approved alternative source)
 
 Any additional permissions required to securely integrate and test data within the CPT internal environment
 
+---
 ## 14. Acknowledgement of Expectations
 By submitting this proposal, I acknowledge that:
 - This is a self-directed technical project
