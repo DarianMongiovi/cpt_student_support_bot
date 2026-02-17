@@ -57,7 +57,8 @@ I have previous experence webscraping with Python and displaying info from a var
 
 SQL is a interest of mine as I innitially started IT studies with online data analytics programs. I have experience writting DDL code to define a database, and DQL code for queries. My relevant insights for this project are the packages used for different data platforms, and automating cleaning/formating. -Darian
 
----
+-I have experience working with Python scripting, Linux environments, and database fundamentals through coursework and hands-on projects within the CPT program. I am particularly comfortable working with structured data, SQL queries, and automation concepts.
+I have also worked on technical documentation, system setup, and troubleshooting in virtual machine environments. My strengths include maintaining organized project structure, ensuring proper database schema design, and focusing on security practices such as credential management and environment configuration. daniel lukonda
 
 ## 7. Project Scope & Deliverables
 The scope of this project will be mainly limited to designing, implementing, and deploying an automated ETL pipeline that will aggregate academic and athletic calender data into a PostgreSQL
