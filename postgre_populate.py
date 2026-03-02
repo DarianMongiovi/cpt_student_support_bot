@@ -28,6 +28,8 @@ def initialize_db():
                 source TEXT
             )
         '''))
+
+        conn.execute(text('TRUNCATE TABLE events RESTART IDENTITY'))
     print("PostgreSQL Database initialized.")
 
 ###############################################################################
@@ -49,3 +51,8 @@ if __name__ == "__main__":
     from sports_etl import final_sports_df
     sports_df = final_sports_df()
     db_populate(sports_df)
+
+    #Populate Academic Calendar Data
+    from academic_calendar_fetcher.main import final_academic_df
+    academic_df = final_academic_df()
+    db_populate(academic_df)
