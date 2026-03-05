@@ -1,5 +1,6 @@
 from __future__ import annotations
 import os
+import sys
 import pandas as pd
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
@@ -8,12 +9,27 @@ from dotenv import load_dotenv
 #                               DATABASE SETUP                                #
 ###############################################################################
 
-load_dotenv("events.env")
+if getattr(sys, 'frozen', False):
+    base_path = os.path.dirname(sys.executable)
+else:
+    base_path = os.path.dirname(os.path.abspath(__file__))
 
-# Build the Connection String
-DB_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}/{os.getenv('DB_NAME')}"
+env_path = os.path.join(base_path, "events.env")
+load_dotenv(env_path)
 
-engine = create_engine(DB_URL)
+DB_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT', '5432')}/{os.getenv('DB_NAME')}"
+
+try:
+    engine = create_engine(DB_URL)
+    with engine.connect() as conn:
+        print("Successfully connected to the database!")
+    
+    # Your population logic here
+    
+
+except Exception as e:
+    print(f"Error: {e}")
+    sys.exit(1)
 
 def initialize_db():
     with engine.begin() as conn:
