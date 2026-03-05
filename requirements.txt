@@ -1,0 +1,6 @@
+dotenv
+icalendar
+pandas
+PyPDF2
+requests
+sqlalchemy
