@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 ###############################################################################
 
 if getattr(sys, 'frozen', False):
-    base_path = os.path.dirname(sys.executable)
+    base_path = sys._MEIPASS
 else:
     base_path = os.path.dirname(os.path.abspath(__file__))
 
@@ -26,7 +26,6 @@ try:
     
     # Your population logic here
     
-
 except Exception as e:
     print(f"Error: {e}")
     sys.exit(1)
@@ -72,3 +71,4 @@ if __name__ == "__main__":
     from academic_calendar_fetcher.main import final_academic_df
     academic_df = final_academic_df()
     db_populate(academic_df)
+
