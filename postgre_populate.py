@@ -19,21 +19,21 @@ load_dotenv(env_path)
 
 DB_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT', '5432')}/{os.getenv('DB_NAME')}"
 
+# Define engine at the module level so it is accessible to all functions
+engine = create_engine(DB_URL)
+
 try:
-    engine = create_engine(DB_URL)
     with engine.connect() as conn:
         print("Successfully connected to the database!")
-    
-    # Your population logic here
-    
 except Exception as e:
     print(f"Error: {e}")
     sys.exit(1)
 
 def initialize_db():
     with engine.begin() as conn:
+
         conn.execute(text('''
-            CREATE TABLE IF NOT EXISTS events (
+            CREATE TABLE IF NOT EXISTS calendar.events (
                 id SERIAL PRIMARY KEY,
                 event_type TEXT,
                 event_name TEXT,
@@ -44,7 +44,7 @@ def initialize_db():
             )
         '''))
 
-        conn.execute(text('TRUNCATE TABLE events RESTART IDENTITY'))
+        conn.execute(text('TRUNCATE TABLE calendar.events RESTART IDENTITY'))
     print("PostgreSQL Database initialized.")
 
 ###############################################################################
@@ -56,7 +56,7 @@ def db_populate(df):
 
     valid_df = df[schema_cols]
 
-    valid_df.to_sql('events', engine, if_exists='append', index=False)
+    valid_df.to_sql('events', engine, schema='calendar', if_exists='append', index=False)
     print("db successfully populated")
 
 if __name__ == "__main__":
@@ -72,3 +72,8 @@ if __name__ == "__main__":
     academic_df = final_academic_df()
     db_populate(academic_df)
 
+    # Print the first 10 lines of the table
+    query = "SELECT * FROM calendar.events LIMIT 10"
+    with engine.connect() as conn:
+        top_10_df = pd.read_sql(query, conn)
+        print(top_10_df)
