@@ -19,7 +19,6 @@ load_dotenv(env_path)
 
 DB_URL = f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT', '5432')}/{os.getenv('DB_NAME')}"
 
-# Define engine at the module level so it is accessible to all functions
 engine = create_engine(DB_URL)
 
 try:
@@ -77,3 +76,4 @@ if __name__ == "__main__":
     with engine.connect() as conn:
         top_10_df = pd.read_sql(query, conn)
         print(top_10_df)
+
