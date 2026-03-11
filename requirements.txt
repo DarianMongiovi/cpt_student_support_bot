@@ -4,3 +4,4 @@ pandas
 PyPDF2
 requests
 sqlalchemy
+psycopg2
