@@ -71,9 +71,9 @@ if __name__ == "__main__":
     academic_df = final_academic_df()
     db_populate(academic_df)
 
-    # Print the first 10 lines of the table
     query = "SELECT * FROM calendar.events LIMIT 10"
     with engine.connect() as conn:
         top_10_df = pd.read_sql(query, conn)
         print(top_10_df)
+
 
